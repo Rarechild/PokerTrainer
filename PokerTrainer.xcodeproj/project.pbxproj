@@ -45,7 +45,6 @@
 		DAEBD247163F194F00A22F5C /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DAEBD248163F194F00A22F5C /* PokerTrainer.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; path = PokerTrainer.1; sourceTree = "<group>"; };
 		DAEBD250163F197500A22F5C /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		DAEBD251163F19CA00A22F5C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +61,6 @@
 		DAEBD1F5163F188F00A22F5C = {
 			isa = PBXGroup;
 			children = (
-				DAEBD251163F19CA00A22F5C /* .gitignore */,
 				DAEBD250163F197500A22F5C /* README */,
 				DAEBD203163F188F00A22F5C /* PokerTrainer */,
 				DAEBD201163F188F00A22F5C /* Products */,
