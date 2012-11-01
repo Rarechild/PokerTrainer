@@ -45,6 +45,7 @@
 		DAEBD247163F194F00A22F5C /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DAEBD248163F194F00A22F5C /* PokerTrainer.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; path = PokerTrainer.1; sourceTree = "<group>"; };
 		DAEBD250163F197500A22F5C /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		DAEBD2521641E79300A22F5C /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,18 +89,19 @@
 		DAEBD23A163F194F00A22F5C /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				DAEBD23B163F194F00A22F5C /* Card.cpp */,
 				DAEBD23C163F194F00A22F5C /* Card.h */,
-				DAEBD23D163F194F00A22F5C /* Deck.cpp */,
+				DAEBD23B163F194F00A22F5C /* Card.cpp */,
 				DAEBD23E163F194F00A22F5C /* Deck.h */,
-				DAEBD23F163F194F00A22F5C /* Game.cpp */,
-				DAEBD240163F194F00A22F5C /* Game.h */,
-				DAEBD241163F194F00A22F5C /* Hand.cpp */,
+				DAEBD23D163F194F00A22F5C /* Deck.cpp */,
 				DAEBD242163F194F00A22F5C /* Hand.h */,
-				DAEBD243163F194F00A22F5C /* Player.cpp */,
+				DAEBD241163F194F00A22F5C /* Hand.cpp */,
 				DAEBD244163F194F00A22F5C /* Player.h */,
-				DAEBD245163F194F00A22F5C /* Round.cpp */,
+				DAEBD243163F194F00A22F5C /* Player.cpp */,
 				DAEBD246163F194F00A22F5C /* Round.h */,
+				DAEBD245163F194F00A22F5C /* Round.cpp */,
+				DAEBD240163F194F00A22F5C /* Game.h */,
+				DAEBD23F163F194F00A22F5C /* Game.cpp */,
+				DAEBD2521641E79300A22F5C /* Test.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";

@@ -19,58 +19,65 @@ using namespace std;
 class Hand {
     
 private:
+    
+    /////Data Members/////
     vector<Card> _cards, _bestCards;
     int _rank;
     
 public:
-    //Constructors
-    Hand();
     
-    //Set Variables
-    void addCard(Card card_);
-    void setRank(int rank_) {_rank = rank_;}
+    /////Constructors/////
+    Hand();     //Default constructor
     
-    //Get Variables
-    Card getCard(int number_) {return _cards[number_];};
-    Card getBestCard(int number_) {return _bestCards[number_];};
+    /////Accessors/////
+    void setRank(int rank_) {_rank = rank_;}                        //Set _rank data member
     
-    vector<Card> getCards() {return _cards;};
-    vector<Card> getBestCards() {return _bestCards;};
+    vector<Card> getCards() {return _cards;};                       //Return all cards in _cards as vector of cards
+    vector<Card> getBestCards() {return _bestCards;};               //Return all cards in _bestCards as vector of cards
+    int getRank() {return _rank;};                                  //Return _rank data member
     
-    int getRank() {return _rank;};
+    Card getCard(int number_) {return _cards[number_];};            //Return one specified card in _cards as card type
+    Card getBestCard(int number_) {return _bestCards[number_];};    //Return one specified card in _bestCard as card type
     
-    //Helper Functions
-    vector<Card> sort(vector<Card> cards_);
+    /////Methods/////
+    void addCard(Card card_);           //Add a card to the hand
     
-    bool isStraightFlush(vector<Card> cards_);
-    bool isFourOfKind(vector<Card> cards_);
-    bool isFullHouse(vector<Card> cards_);
-    bool isFlush(vector<Card> cards_);
-    bool isStraight(vector<Card> cards_);
-    bool isThreeOfKind(vector<Card> cards_);
-    bool isTwoPair(vector<Card> cards_);
-    bool isPair(vector<Card> cards_);
+    void evalRank();                    //Evaluate either five or seven cards to determine rank, best cards
+    void evalRankSeven(vector<Card> &potentialBestCards_, int &potentialBestRank_, vector<Card> cards_);    //Evaluate seven cards to determine rank, best cards
+    void evalRankFive(vector<Card> &potentialBestCards_, int &potentialBestRank_, vector<Card> cards_);     //Evaluate five cards to determine rank, best cards
     
-    void evalRank();
-    void evalRankFive(vector<Card> &potentialBestCards_, int &potentialBestRank_, vector<Card> cards_);
-    void evalRankSeven(vector<Card> &potentialBestCards_, int &potentialBestRank_, vector<Card> cards_);
+    vector<Card> sort(vector<Card> cards_);         //Sort five cards and return
+    vector<Card> sortByGroup(vector<Card> cards_);  //Sort five cards by group count and return
+    vector<Card> sortByValue(vector<Card> cards_);  //Sort cards by value and return
     
-    int compare(vector<Card> firstCards_, int firstRank_, vector<Card> secondCards_);
+    int countCards(vector<Card> cards_, int position);                                              //Count the number of instances of a card at a given position
+    vector<Card> moveCard(vector<Card> cards_, int fromPosition, int toPosition);                   //Move one card from one position to another position
+    vector<Card> moveCards(vector<Card> cards_, int fromPosition, int toPosition, int groupSize);   //Move group of cards from one position to another position
     
-    //Methods
-    string showCard(int position_);
-    string showPocket();
-    string showBoard();
-    string showAllCards();
-    string showBestCards();
-    string showHandValue();
-    void printCard(int position_);
-    void printPocket();
-    void printBoard();
-    void printAllCards();
-    void printBestCards();
-    void printRank();
-    void printHandValue();
+    bool isStraightFlush(vector<Card> cards_);      //Evaluate five cards to detect straight flush, return bool
+    bool isFourOfKind(vector<Card> cards_);         //Evaluate five cards to detect four of a kind, return bool
+    bool isFullHouse(vector<Card> cards_);          //Evaluate five cards to detect full house, return bool
+    bool isFlush(vector<Card> cards_);              //Evaluate five cards to detect flush, return bool
+    bool isStraight(vector<Card> cards_);           //Evaluate five cards to detect straight, return bool
+    bool isThreeOfKind(vector<Card> cards_);        //Evaluate five cards to detect three of a kind, return bool
+    bool isTwoPair(vector<Card> cards_);            //Evaluate five cards to detect two pair, return bool
+    bool isPair(vector<Card> cards_);               //Evaluate five cards to detect pair, return bool
+        
+    /////Display Functions/////
+    string showCard(int position_);     //Create string of one card in _cards vector
+    string showPocket();                //Create string of first two cards in _cards vector
+    string showBoard();                 //Create string of third through seventh card in _cards vector
+    string showAllCards();              //Create string of all cards in _cards vector
+    string showBestCards();             //Create string of all cards in _bestCards vector
+    string showHandValue();             //Create string of the hand value
+    
+    void printCard(int position_);      //Print string of one card in _cards vector
+    void printPocket();                 //Print string of first two cards in _cards vector
+    void printBoard();                  //Print string of third through seventh card in _cards vector
+    void printAllCards();               //Print string of all cards in _cards vector
+    void printBestCards();              //Print string of all cards in _bestCards vector
+    void printHandValue();              //Print hand value
+    void printRank();                   //Print rank value
 };
 
 #endif /* defined(__Poker__Hand__) */

@@ -17,20 +17,27 @@ using namespace std;
 
 class Deck {
     
-private:	
+private:
+	
+    /////Data Members/////
     vector<Card> _deck;
     int _size, _position;
     
 public:
-    //Constructors
-    Deck();
     
-    //Methods
-    void shuffle();
-    Card dealCard();
-    void burnCard();
-    string show();
-    void print();
+    /////Constructors/////
+    Deck();                 //Default constructor
+    
+    /////Accessors/////
+    
+    /////Methods/////
+    void shuffle();         //Shuffle deck
+    Card dealCard();        //Take next card from deck and return it
+    void burnCard();        //Take next card from deck and discard it
+    
+    /////Display Functions/////
+    string show();          //Create string of all cards in the deck, in shorthand
+    void print();           //Print string of all cards in the deck, in shorthand
 
 };
 

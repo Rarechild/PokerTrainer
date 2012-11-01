@@ -12,7 +12,9 @@
 
 using namespace std;
 
-//Constructors
+/////Constructors/////
+
+//Default constructor
 Card::Card() {
 
     _value = ACE;
@@ -20,6 +22,7 @@ Card::Card() {
 
 };
 
+//Constructor for given value and suit values
 Card::Card(Value value_, Suit suit_) {
 
     _value = value_;
@@ -27,16 +30,60 @@ Card::Card(Value value_, Suit suit_) {
 
 };
 
-//Methods
-string Card::show() const {
+/////Operator Overloads/////
+
+int operator+ (Card firstCard_, Card secondCard_) {             //Addition, Card to Card
+    return (firstCard_.getValue() + secondCard_.getValue());    //Add card values, ignore suit
+};
+
+int operator- (Card firstCard_, Card secondCard_) {             //Subtraction, Card to Card
+    return (firstCard_.getValue() - secondCard_.getValue());    //Subtract card values, ignroe suit
+};
+
+bool operator== (Card firstCard_, int value_) {                 //Equality, Card to int
+    return (firstCard_.getValue() == value_);                   //Compare card value to int, ignroe suit
+};
+
+bool operator== (Card firstCard_, Card secondCard_) {           //Equality, Card to Card
+    return (firstCard_.getValue() == secondCard_.getValue());   //Compare card values, ignore suit
+};
+
+bool operator!= (Card firstCard_, Card secondCard_) {           //Non-Equality, Card to Card
+    return !(firstCard_ == secondCard_);                        //Compare card values, ignore suit
+};
+
+bool operator< (Card firstCard_, Card secondCard_) {            //Less Than, Card to Card
+    return firstCard_.getValue() < secondCard_.getValue();      //Compare card values, ignore suit
+};
+
+bool operator<= (Card firstCard_, Card secondCard_) {           //Less Than or Equal To, Card to Card
+    return firstCard_.getValue() <= secondCard_.getValue();     //Compare card values, ignore suit
+};
+
+bool operator> (Card firstCard_, Card secondCard_) {            //Greater Than, Card to Card
+    return firstCard_.getValue() > secondCard_.getValue();      //Compare card values, ignore suit
+};
+
+bool operator>= (Card firstCard_, Card secondCard_) {           //Greater Than or Equal To, Card to Card
+    return firstCard_.getValue() >= secondCard_.getValue();     //Compare card values, ignore suit
+};
+
+/////Methods/////
+
+
+/////Display Functions/////
+
+//Create string of value and suit in compact format e.g. "A|S"
+string Card::show() const {     
     
     string valueName;
     string suitName;
     
+    //Convert integer of value to shorthand
     switch (_value)
     {
         case 1:
-            valueName = "1";
+            valueName = "1";            //Ace is only considered '1' when low end of straight
             break;
         case 2:
             valueName = "2";
@@ -63,7 +110,7 @@ string Card::show() const {
             valueName = "9";
             break;
         case 10:
-            valueName = "T";
+            valueName = "T";            //Shorthand for 10 is T to keep to one character
             break;
         case JACK:
             valueName = "J";
@@ -75,11 +122,11 @@ string Card::show() const {
             valueName = "K";
             break;
         case ACE:
-            valueName = "A";
+            valueName = "A";            //Ace is considered 'A' in most cases
             break;
     }
     
-    switch (_suit)
+    switch (_suit)                      //Convert integer of suit to shorthand
     {
         case SPADE:
             suitName = "S";
@@ -95,11 +142,12 @@ string Card::show() const {
             break;
     }
     
-    return valueName + "|" + suitName;
+    return valueName + "|" + suitName;  //Return shorthand of value and suit, separated by a pipe '|'
     
 };
 
-void Card::print() const {
+//Print string of value and suit in compact format e.g. "A|S"
+void Card::print() const {      
 
     cout << show() << endl;
 

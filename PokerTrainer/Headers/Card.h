@@ -14,8 +14,9 @@
 
 using namespace std;
 
-enum Value {
-    ONE = 1,
+//Create enumerated type for card value
+enum Value {        
+    ONE = 1,        //ONE is low Ace
     TWO = 2,
     THREE = 3,
     FOUR = 4,
@@ -28,9 +29,10 @@ enum Value {
     JACK = 11,
     QUEEN = 12,
     KING = 13,
-    ACE = 14,
+    ACE = 14,       //ACE is high Ace
 };
 
+//Create enumerated type for card suit
 enum Suit {
     SPADE = 1,
     HEART = 2,
@@ -41,23 +43,40 @@ enum Suit {
 class Card {
     
 private:
+    
+    /////Data Members/////
     Value _value;
     Suit _suit;
 
 public:
-    //Constructors
-    Card();
-    Card(Value, Suit);
     
-    //Accessors
+    /////Constructors/////
+    Card();                 //Default constructor
+    Card(Value, Suit);      //Constructor for given value and suit values
+    
+    /////Operator Overloads/////
+    friend int operator+ (Card firstCard_, Card secondCard_);       //Add card values, ignore suit 
+    friend int operator- (Card firstCard_, Card secondCard_);       //Subtract card values, ignore suit
+    friend bool operator== (Card firstCard_, int value_);           //Compare card value to int, ignore suit
+    friend bool operator== (Card firstCard_, Card secondCard_);     //Compare card values, ignore suit
+    friend bool operator!= (Card firstCard_, Card secondCard_);     //Compare card values, ignore suit
+    friend bool operator< (Card firstCard_, Card secondCard_);      //Compare card values, ignore suit
+    friend bool operator<= (Card firstCard_, Card secondCard_);     //Compare card values, ignore suit
+    friend bool operator> (Card firstCard_, Card secondCard_);      //Compare card values, ignore suit
+    friend bool operator>= (Card firstCard_, Card secondCard_);     //Compare card values, ignore suit
+    
+    /////Accessors///
     void setValue(Value value_) {_value = value_;}
     void setSuit(Suit suit_) {_suit = suit_;}
     Value getValue() const {return _value;}
     Suit getSuit() const {return _suit;}
     
-    //Methods
-    string show() const;
-    void print() const;
+    /////Methods/////
+    
+    
+    /////Display Functions/////
+    string show() const;    //Create string of value and suit in compact format e.g. "A|S"
+    void print() const;     //Print string of value and suit in compact format e.g. "A|S"
     
 };
 

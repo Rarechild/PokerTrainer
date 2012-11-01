@@ -13,11 +13,15 @@
 
 using namespace std;
 
+/////Constructors/////
+
+//Default constructor
 Player::Player() {
     _name = "Player";
     _hand = Hand();
 }
 
+//Constructor for a given name
 Player::Player(string name_) {
     _name = name_;
     _hand = Hand();
